@@ -36,7 +36,11 @@ public class EmployeeService {
                         new Employee("hinata", 120000),
                         new Employee("kiba", 120000),
                         new Employee("shino", 120000),
-                        ).collect(Collectors.toList()));
+                        new Employee("asuma", 120000),
+                        new Employee("shikamaru", 120000),
+                        new Employee("choji", 120000),
+                        new Employee("ino", 120000)
+                ).collect(Collectors.toList()));
     }
 
     public Employee getEmployee(int employeeId) {
