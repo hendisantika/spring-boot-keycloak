@@ -37,4 +37,10 @@ public class EmployeeService {
                         new Employee("shino", 120000),
                         ).collect(Collectors.toList()));
     }
+
+    public Employee getEmployee(int employeeId) {
+        return employeeRepository
+                .findById(employeeId)
+                .orElse(null);
+    }
 }
