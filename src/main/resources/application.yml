@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 8888
 
 spring:
   h2:
@@ -7,8 +7,8 @@ spring:
       enabled: true
 
 keycloak:
-  realm: jvmindonesia
-  auth-server-url: http://localhost:8180/auth
+  realm: PowerRanger
+  auth-server-url: http://localhost:8080/auth
   resource: springboot-keycloak
   public-client: true
   bearer-only: true
