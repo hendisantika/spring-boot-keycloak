@@ -8,7 +8,7 @@ spring:
 
 keycloak:
   realm: PowerRanger
-  auth-server-url: http://localhost:8080/auth
+  auth-server-url: http://localhost:8080
   resource: springboot-keycloak
   public-client: true
   bearer-only: true
