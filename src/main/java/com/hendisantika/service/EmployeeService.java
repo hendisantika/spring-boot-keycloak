@@ -2,7 +2,8 @@ package com.hendisantika.service;
 
 import com.hendisantika.entity.Employee;
 import com.hendisantika.repository.EmployeeRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
@@ -20,10 +21,11 @@ import java.util.stream.Stream;
  * Time: 05.50
  */
 @Service
+@RequiredArgsConstructor
+@Slf4j
 public class EmployeeService {
 
-    @Autowired
-    private EmployeeRepository employeeRepository;
+    private final EmployeeRepository employeeRepository;
 
     @PostConstruct
     public void initializeEmployeeTable() {
@@ -41,16 +43,24 @@ public class EmployeeService {
                         new Employee("choji", 120000),
                         new Employee("ino", 120000)
                 ).collect(Collectors.toList()));
+        log.info("Save all employees");
     }
 
     public Employee getEmployee(int employeeId) {
+        log.info("Get employee by ID");
         return employeeRepository
                 .findById(employeeId)
                 .orElse(null);
     }
 
     public List<Employee> getAllEmployees() {
+        log.info("Get all employees");
         return employeeRepository
                 .findAll();
+    }
+
+    public Employee addNewEmployee(Employee employee) {
+        log.info("Add new employee");
+        return employeeRepository.save(employee);
     }
 }
